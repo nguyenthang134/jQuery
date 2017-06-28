@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>find() method</title>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <div id="header" style="width: 100%; margin-bottom: 10px; background-color: lightgrey;padding: 10px 10px;"><button id="toggleMenu"><img src="../Very-Basic-Menu-icon.png" alt="Menu"></button></div>
+
+    <div id="menu">
+        <ul>
+            <li><a href="../findmethod/find.html">find()</a></li>
+            <li><a href="../hidemethod/hideMethod.html">hide()</a></li>
+            <li><a href="../togglemethod/toggleMethod.html">toggle()</a></li>
+            <li><a href="../showmethod/showMethod.html">show()</a></li>
+            <li><a href="../animatemethod/animateMethod.html">animate()</a></li>
+        </ul>
+    </div>
+    <div id="content">
+        <p style="font-size: 50px; font-weight: bolder">jQuery find() method</p>
+        <h1>Definition and Usage</h1>
+        <p style="font-size: larger; line-height: 2;">
+            The find() method returns descendant elements of the selected element.
+
+            A descendant is a child, grandchild, great-grandchild, and so on.
+
+            The DOM tree: This method traverse downwards along descendants of DOM elements, all the way down to the last descendant. To only traverse a single level down the DOM tree (to return direct children), use the children() method.
+
+            Note: The filter parameter is required for the find() method, unlike the rest of the tree traversal methods.
+
+            Tip: To return all of the descendant elements, use the "*" selector.
+        </p>
+        <h1>Syntax</h1>
+        <hr>
+        <span style=" font-size: larger;">$(selector).find(filter)</span>
+        <hr>
+        <table>
+            <tr>
+                <th>
+                    Parameter
+                </th>
+                <th>
+                    Description
+                </th>
+            </tr>
+            <tr>
+                <td>
+                    filter
+                </td>
+                <td>
+                    Required. A selector expression, element or jQuery object to filter the search for descendants<br>
+
+                    Note: To return multiple descendants, separate each expression with a comma.
+                </td>
+            </tr>
+        </table>
+        <h1>Demo</h1>
+        <pre style="border: 1px solid black; width: 700px; overflow: scroll;">
+    $(document).ready(function(){
+        $("ul").find("span").css({"color": "red", "border": "2px solid red"});
+    });
+        </pre>
+        <div class="ancestors">
+            <div style="width:500px;">div (grandparent)
+                <ul>ul (direct parent)
+                    <li>li (child)
+                        <span>span (grandchild)</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script>
+        $(document).ready(function(){
+            $("ul").find("span").css({"color": "red", "border": "2px solid red"});
+            $("#toggleMenu").bind('click', function () {
+                $("#menu").toggle(100);
+            })
+        });
+    </script>
+</body>
+</html>

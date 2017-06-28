@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>animate() method</title>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <div id="header" style="width: 100%; margin-bottom: 10px; background-color: lightgrey;padding: 10px 10px;"><button id="toggleMenu"><img src="../Very-Basic-Menu-icon.png" alt="Menu"></button></div>
+    <div id="menu">
+        <ul>
+            <li><a href="../findmethod/find.html">find()</a></li>
+            <li><a href="../hidemethod/hideMethod.html">hide()</a></li>
+            <li><a href="../togglemethod/toggleMethod.html">toggle()</a></li>
+            <li><a href="../showmethod/showMethod.html">show()</a></li>
+            <li><a href="../animatemethod/animateMethod.html">animate()</a></li>
+        </ul>
+    </div>
+    <div id="content">
+        <p style="font-size: 50px; font-weight: bolder">jQuery animate() method</p>
+        <h1>Definition and Usage</h1>
+        <p style="font-size: larger; line-height: 2;">
+            <pre>
+    The animate() method performs a custom animation of a set of CSS properties.
+
+    This method changes an element from one state to another with CSS styles. The CSS property value is changed gradually, to create an animated effect.
+
+    Only numeric values can be animated (like "margin:30px"). String values cannot be animated (like "background-color:red"), except for the strings "show", "hide" and "toggle".
+    These values allow hiding and showing the animated element.
+
+    Tip: Use "+=" or "-=" for relative animations.
+            </pre>
+        </p>
+        <h1>Syntax</h1>
+        <hr>
+        <span style=" font-size: larger;">(selector).animate({styles},speed,easing,callback)</span>
+        <hr>
+        <table>
+            <tr>
+                <th>
+                    Parameter
+                </th>
+                <th>
+                    Description
+                </th>
+            </tr>
+            <tr>
+                <td>
+                    styles
+                </td>
+                <td>
+                    <pre>
+    Required. Specifies one or more CSS properties/values to animate.
+    Note: The property names must be camel-cased when used with the animate() method: You will need to write paddingLeft
+    instead of padding-left, marginRight instead of margin-right, and so on.
+
+    Properties that can be animated:
+
+    backgroundPositionX
+    backgroundPositionY
+    borderWidth
+    borderBottomWidth
+    borderLeftWidth
+    borderRightWidth
+    borderTopWidth
+    borderSpacing
+    margin
+    marginBottom
+    marginLeft
+    marginRight
+    marginTop
+    outlineWidth
+    padding
+    paddingBottom
+    paddingLeft
+    paddingRight
+    paddingTop
+    height
+    width
+    maxHeight
+    maxWidth
+    minHeight
+    minWidth
+    fontSize
+    bottom
+    left
+    right
+    top
+    letterSpacing
+    wordSpacing
+    lineHeight
+    textIndent
+
+    Only numeric values can be animated (like "margin:30px"). String values cannot be animated (like "background-color:red"),
+    except for the strings "show", "hide" and "toggle". These values allow hiding and showing the animated element.
+                    </pre>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    speed
+                </td>
+                <td>
+                    <pre>
+    Optional. Specifies the speed of the hide effect. Default value is 400 milliseconds
+    Possible values:
+
+    milliseconds
+    "slow"
+    "fast"
+                    </pre>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    easing
+                </td>
+                <td>
+                    <pre>
+    Optional. Specifies the speed of the element in different points of the animation. Default value is "swing"
+    Possible values:
+
+    "swing" - moves slower at the beginning/end, but faster in the middle
+    "linear" - moves in a constant speed
+    Tip: More easing functions are available in external plugins
+                    </pre>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    callback
+                </td>
+                <td>
+                    <pre>
+    Optional. A function to be executed after the hide() method is completed
+    To learn more about callback, visit our jQuery Callback chapter
+                    </pre>
+                </td>
+            </tr>
+        </table>
+        <h1>Alternate Syntax</h1>
+        <hr>
+        <span style=" font-size: larger;">$(selector).animate({styles},{options})</span>
+        <hr>
+        <table>
+            <tr>
+                <th>
+                    Parameter
+                </th>
+                <th>
+                    Description
+                </th>
+            </tr>
+            <tr>
+                <td>
+                    styles
+                </td>
+                <td>
+                    <pre>
+    Required. Specifies one or more CSS properties/values to animate (See possible values above)
+                    </pre>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    options
+                </td>
+                <td>
+                    <pre>
+    Optional. Specifies additional options for the animation. Possible values:
+        duration - sets the speed of the animation
+        easing - specifies the easing function to use
+        complete - specifies a function to be executed after the animation completes
+        step - specifies a function to be executed for each step in the animation
+        progress - specifies a function to be executed after each step in the animation
+        queue - a Boolean value specifying whether or not to place the animation in the effects queue
+        specialEasing - a map of one or more CSS properties from the styles parameter, and their corresponding easing functions
+        start - specifies a function to be executed when the animation begins
+        done - specifies a function to be executed when the animation ends
+        fail - specifies a function to be executed if the animation fails to complete
+        always - specifies a function to be executed if the animation stops without completing
+                    </pre>
+                </td>
+            </tr>
+        </table>
+        <h1>Demo</h1>
+        <pre style="border: 1px solid black; width: 700px; overflow: scroll;">
+    $("button").click(function(){
+        $("#box").animate({height: "300px"});
+    });
+        </pre>
+        <hr>
+        <button id="btn1">Animate height</button>
+        <button id="btn2">Reset height</button>
+
+        <div id="box" style="background:#98bf21;height:100px;width:100px;margin:6px;"></div>
+    </div>
+    <script>
+        $(document).ready(function(){
+            $("#btn1").click(function(){
+                $("#box").animate({height: "300px"});
+            });
+            $("#btn2").click(function(){
+                $("#box").animate({height: "100px"});
+            });
+            $("#toggleMenu").bind('click', function () {
+                $("#menu").toggle(100);
+            })
+        });
+    </script>
+</body>
+</html>

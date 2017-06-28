@@ -1,0 +1,49 @@
+table, th, tr, td{
+    border:1px solid black;
+    border-collapse: collapse;
+}
+
+pre{
+    font-family: Arial;
+}
+
+#header{
+    position: fixed;
+    top:0;
+    left:0;
+}
+
+#menu{
+    position: fixed;
+    top: 60px;
+    left:0;
+    background-color: white;
+    border:1px solid black;
+    float: left;
+    font-size:20px;
+    width:20%;
+    z-index: 10;
+    display: none ;
+}
+
+#content{
+    border:1px solid black;
+    margin-top: 60px;
+    margin-left: 15%;
+    width:70%;
+    padding-left: 50px;
+    padding-bottom: 50px;
+}
+
+.ancestors * {
+    display: block;
+    border: 2px solid lightgrey;
+    color: lightgrey;
+    padding: 5px;
+    margin: 15px;
+}
+
+li a{
+    text-decoration: none;
+    font-size: 30px;
+}

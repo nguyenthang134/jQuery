@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>toggle() method</title>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <div id="header" style="width: 100%; margin-bottom: 10px; background-color: lightgrey;padding: 10px 10px;"><button id="toggleMenu"><img src="../Very-Basic-Menu-icon.png" alt="Menu"></button></div>
+    <div id="menu">
+        <ul>
+            <li><a href="../findmethod/find.html">find()</a></li>
+            <li><a href="../hidemethod/hideMethod.html">hide()</a></li>
+            <li><a href="../togglemethod/toggleMethod.html">toggle()</a></li>
+            <li><a href="../showmethod/showMethod.html">show()</a></li>
+            <li><a href="../animatemethod/animateMethod.html">animate()</a></li>
+        </ul>
+    </div>
+    <div id="content">
+        <p style="font-size: 50px; font-weight: bolder">jQuery toggle() method</p>
+        <h1>Definition and Usage</h1>
+        <p style="font-size: larger; line-height: 2;">
+            <pre>
+    The toggle() method toggles between hide() and show() for the selected elements.
+
+    This method checks the selected elements for visibility. show() is run if an element is hidden. hide() is run if an element
+    is visible - This creates a toggle effect.
+
+    Note: Hidden elements will not be displayed at all (no longer affects the layout of the page).
+
+    Tip: This method can also be used to toggle between custom functions.
+            </pre>
+        </p>
+        <h1>Syntax</h1>
+        <hr>
+        <span style=" font-size: larger;">$(selector).toggle(speed,easing,callback)</span>
+        <hr>
+        <table>
+            <tr>
+                <th>
+                    Parameter
+                </th>
+                <th>
+                    Description
+                </th>
+            </tr>
+            <tr>
+                <td>
+                    speed
+                </td>
+                <td>
+                    <pre>
+    Optional. Specifies the speed of the hide effect. Default value is 400 milliseconds
+    Possible values:
+
+    milliseconds
+    "slow"
+    "fast"
+                    </pre>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    easing
+                </td>
+                <td>
+                    <pre>
+    Optional. Specifies the speed of the element in different points of the animation. Default value is "swing"
+    Possible values:
+
+    "swing" - moves slower at the beginning/end, but faster in the middle
+    "linear" - moves in a constant speed
+    Tip: More easing functions are available in external plugins
+                    </pre>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    callback
+                </td>
+                <td>
+                    <pre>
+    Optional. A function to be executed after the hide() method is completed
+    To learn more about callback, visit our jQuery Callback chapter
+                    </pre>
+                </td>
+            </tr>
+        </table>
+        <h1>Demo</h1>
+        <pre style="border: 1px solid black; width: 700px; overflow: scroll;">
+    $("button").click(function(){
+        $("p").toggle();
+    });
+        </pre>
+        <hr>
+        <p class="p">This is a paragraph.</p>
+
+        <button>Toggle between hide() and show()</button>
+    </div>
+    <script>
+        $(document).ready(function(){
+            $("button").click(function(){
+                $(".p").toggle();
+            });
+            $("#toggleMenu").bind('click', function () {
+                $("#menu").toggle(100);
+            })
+        });
+    </script>
+</body>
+</html>
